@@ -9,7 +9,7 @@ pipeline:
       - curl https://www.dotdeb.org/dotdeb.gpg > dotdeb.gpg
       - apt-key add dotdeb.gpg
       - apt-get update
-      - apt-get install -y php7.0 php7.0-common php7.0-mbstring php7.0-cli
+      - apt-get install -y php7.0 php7.0-common php7.0-mbstring php7.0-dom php7.0-cli
       - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       - php composer-setup.php
       - mv composer.phar /usr/local/bin/composer
