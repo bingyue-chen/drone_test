@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: php:7.0-cli
+    image: phpdockerio/php7-fpm:latest
     commands:
       - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       - php composer-setup.php
