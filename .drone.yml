@@ -1,18 +1,7 @@
 pipeline:
   build:
-    image: debian:jessie
+    image: snowcookie:laravel-env
     commands:
-      - apt-get update
-      - apt-get install -y curl git
-      - echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
-      - echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list
-      - curl https://www.dotdeb.org/dotdeb.gpg > dotdeb.gpg
-      - apt-key add dotdeb.gpg
-      - apt-get update
-      - apt-get install -y php7.0 php7.0-common php7.0-mbstring php7.0-dom php7.0-cli
-      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - php composer-setup.php
-      - mv composer.phar /usr/local/bin/composer
       - composer install
       - mv .env.example .env
       - php artisan key:generate
