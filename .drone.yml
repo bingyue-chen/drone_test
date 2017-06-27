@@ -1,7 +1,12 @@
 pipeline:
   build:
-    image: laraedit/laraedit
+    image: debian:jessie
     commands:
+      - apt-get update
+      - apt-get install -y php7.0 php7.0-common php7.0-cli git
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php
+      - mv composer.phar /usr/local/bin/composer
       - composer install
       - mv .env.example .env
       - php artisan key:generate
