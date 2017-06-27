@@ -1,0 +1,11 @@
+pipeline:
+  build:
+    image: phpdockerio/php7-fpm:latest
+    commands:
+      - apt-get update
+      - apt-get -y --no-install-recommends install sqlite3 libsqlite3-dev php7.0-sqlite3
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php
+      - composer install
+      - php artisan migrate
+      - vendor/phpunit/phpunit/phpunit --debug --colors
