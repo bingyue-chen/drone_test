@@ -2,9 +2,7 @@ pipeline:
   build:
     image: laraedit/laraedit
     commands:
-      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - php composer-setup.php
-      - mv composer.phar /usr/local/bin/composer
       - composer install
-      - php artisan migrate
-      - vendor/phpunit/phpunit/phpunit --debug --colors
+      - mv .env.example .env
+      - php artisan key:generate
+      - vendor/bin/phpunit --debug --colors
