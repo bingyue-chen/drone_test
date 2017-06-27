@@ -4,6 +4,6 @@ pipeline:
     commands:
       - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       - php composer-setup.php
-      - composer install
+      - ./composer install
       - php artisan migrate
       - vendor/phpunit/phpunit/phpunit --debug --colors
