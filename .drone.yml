@@ -1,7 +1,9 @@
 pipeline:
   build:
-    image: phpdockerio/php7-fpm:latest
+    image: php:7.0-cli
     commands:
+      - apt-get update
+      - apt-get install -y git php7.0-common
       - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       - php composer-setup.php
       - mv composer.phar /usr/local/bin/composer
