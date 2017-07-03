@@ -1,7 +1,10 @@
 pipeline:
   build:
     image: snowcookie:laravel-env
+    volumes:
+      - /home/snow/Giftpack-Migration:database/migrations/Giftpack
     commands:
+      - ls database/migrations/Giftpack
       - composer install
       - mv .env.example .env
       - php artisan key:generate
