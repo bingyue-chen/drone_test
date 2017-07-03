@@ -2,7 +2,7 @@ pipeline:
   build:
     image: snowcookie:laravel-env
     volumes:
-      - /home/snow/Giftpack-Migration:/database/migrations/Giftpack
+      - /home/snow/Giftpack-Migration:/drone/src/github.com/snowshana/drone_test/commit/${DRONE_COMMIT_SHA}/database/migrations/Giftpack
     commands:
       - ls database/migrations
       - composer install
